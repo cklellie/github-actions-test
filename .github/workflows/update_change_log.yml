@@ -16,6 +16,8 @@ jobs:
       - name: Update changelog
         run: |
           echo "Hi there" >> CHANGELOG.md
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
           git add .
           git commit -m "Updated changelog."
           git push
