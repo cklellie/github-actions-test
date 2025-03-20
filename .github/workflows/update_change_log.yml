@@ -2,13 +2,12 @@ name: Update change log on PR open
 
 on:
   pull_request:
-    types: [closed]
+    types: [opened, edited, synchronize]
     #branches:
     #  - develop
 
 jobs:
   update:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,7 +18,7 @@ jobs:
       - name: Update changelog
         run: |
           echo "Hi there" >> CHANGELOG.md
-          echo "${{ github.event.pull_request.closed_at }}" >> CHANGELOG.md
+          echo "${{ github.event.pull_request.updated_at }}" >> CHANGELOG.md
           echo "${{ github.event.pull_request.title }}" >> CHANGELOG.md
           echo "${{ github.event.pull_request.body }}" >> CHANGELOG.md
           git config user.name "GitHub Action"
