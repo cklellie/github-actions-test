@@ -16,12 +16,14 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Update changelog
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github)}}
         run: |
           echo "Hi there" >> CHANGELOG.md
           echo "${{ github.event.pull_request.updated_at }}" >> CHANGELOG.md
           echo "${{ github.event.pull_request.title }}" >> CHANGELOG.md
           echo "${{ github.event.pull_request.body }}" >> CHANGELOG.md
-          echo "${{ toJson(github.event.pull_request)}}" >> PR-EVENT.md
+          echo "$GITHUB_CONTEXT" >> PR-EVENT.md
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add .
