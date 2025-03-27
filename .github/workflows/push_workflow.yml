@@ -16,10 +16,10 @@ jobs:
 
       - name: Update changelog
         env:
-          GITHUB_SERVER_URL: ${{ github.server_url }}
-          GITHUB_API_URL: ${{ github.api_url }}
-          GITHUB_ISSUES_URL: ${{ github.event.repository.issues_url }}
+          GITHUB_ADDED_SERVER_URL: ${{ github.server_url }}
+          GITHUB_ADDED_API_URL: ${{ github.api_url }}
+          GITHUB_ADDED_ISSUES_URL: ${{ github.event.repository.issues_url }}
 
         run: |
           echo "Hi there from push, here is the context:"
-          env | grep GITHUB
+          env | grep GITHUB | sort
