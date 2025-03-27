@@ -16,9 +16,10 @@ jobs:
 
       - name: Update changelog
         env:
-          GITHUB_CONTEXT: ${{ toJson(github)}}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          GITHUB_API_URL: ${{ github.api_url }}
+          GITHUB_ISSUES_URL: ${{ github.event.repository.issues_url }}
+
         run: |
-          echo "Hi there, here is the context:"
-          echo "$GITHUB_CONTEXT"
-          
-          https://api.github.com/repos/cklellie/github-actions-test/issues/7
+          echo "Hi there from push, here is the context:"
+          env | grep GITHUB
