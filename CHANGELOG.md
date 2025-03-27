@@ -22,3 +22,7 @@ Hi there
 2025-03-27T08:47:51Z
 feat: my new pr 2
 my feature description is now updated
+Hi there
+2025-03-27T08:49:39Z
+feat (something): another thing
+hello there from the description.
