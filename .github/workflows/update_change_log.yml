@@ -19,13 +19,5 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github)}}
         run: |
-          echo "Hi there" >> CHANGELOG.md
-          echo "${{ github.event.pull_request.updated_at }}" >> CHANGELOG.md
-          echo "${{ github.event.pull_request.title }}" >> CHANGELOG.md
-          echo "${{ github.event.pull_request.body }}" >> CHANGELOG.md
-          echo "$GITHUB_CONTEXT" >> PR-EVENT.md
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-          git add .
-          git commit -m "Updated changelog."
-          git push
+          echo "Hi there, here is the context:"
+          echo "$GITHUB_CONTEXT"
