@@ -1,8 +1,7 @@
 name: Update change log on PR open
 
 on:
-  pull_request:
-    types: [opened, edited, synchronize]
+  push:
     #branches:
     #  - develop
 
